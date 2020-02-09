@@ -39,21 +39,21 @@ public class Controller {
 
     public int inputIntValueWithDiapason(Scanner sc){
         int res = 0;
-        view.printMessage(view.INPUT_INT_DATA +
-                model.getMinRange() + view.SEP + model.getMaxRange());
+        view.printMessage(View.INPUT_INT_DATA +
+                model.getMinRange() + View.SEP + model.getMaxRange());
 
         while( true ) {
             // check int - value
             while (!sc.hasNextInt()) {
-                view.printMessage(view.WRONG_INPUT_DATA
-                        + view.INPUT_INT_DATA + model.getMinRange()
-                        + view.SEP + model.getMaxRange());
+                view.printMessage(View.WRONG_INPUT_DATA
+                        + View.INPUT_INT_DATA + model.getMinRange()
+                        + View.SEP + model.getMaxRange());
                 sc.next();
             }
             // check value in diapason
             if ((res = sc.nextInt()) <= model.getMinRange() ||
                     res >= model.getMaxRange()) {
-                view.printMessage(view.WRONG_RANGE_DATA
+                view.printMessage(View.WRONG_RANGE_DATA
                         + View.INPUT_INT_DATA);
                 continue ;
             }
