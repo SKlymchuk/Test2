@@ -7,6 +7,9 @@ public class Controller {
     private Model model;
     private View view;
 
+    private static final int MAX_RANGE = 100;
+    private static final int MIN_RANGE = 0;
+
     public Controller(Model model, View view){
         this.model = model;
         this.view = view;
@@ -14,8 +17,8 @@ public class Controller {
 
 //    Work method
     public void processUser(){
-        model.setMaxRange(100);
-        model.setMinRange(0);
+        model.setMaxRange(MAX_RANGE);
+        model.setMinRange(MIN_RANGE);
 
         Random rand = new Random();
         model.setValue(rand.nextInt((model.getMaxRange() - model.getMinRange()) + 1));
