@@ -23,7 +23,7 @@ public class Controller {
         Random rand = new Random();
         model.setValue(rand.nextInt((model.getMaxRange() - model.getMinRange()) + 1));
         Scanner sc = new Scanner(System.in);
-
+        System.out.println(model.getValue());
         do {
             model.setInput(inputIntValueWithDiapason(sc));
 
