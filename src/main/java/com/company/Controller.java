@@ -3,6 +3,8 @@ package com.company;
 import java.util.Random;
 import java.util.Scanner;
 
+import static com.company.View.YOUR_VALUE;
+
 public class Controller {
     private Model model;
     private View view;
@@ -23,9 +25,10 @@ public class Controller {
         Random rand = new Random();
         model.setValue(rand.nextInt((model.getMaxRange() - model.getMinRange()) + 1));
         Scanner sc = new Scanner(System.in);
-        System.out.println(model.getValue());
+//        System.out.println(model.getValue());
         do {
             model.setInput(inputIntValueWithDiapason(sc));
+            model.saveAnswers(model.getInput());
 
             if (model.getInput() > model.getValue()){
                 model.setMaxRange(model.getInput());
@@ -37,6 +40,7 @@ public class Controller {
         while (model.getInput() != model.getValue());
 
         view.printMessage(View.WIN + model.getValue());
+        view.printMessage(View.YOUR_VALUE + model.getStat());
     }
 
 
