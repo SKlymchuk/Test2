@@ -15,15 +15,17 @@ public class Controller {
     public Controller(Model model, View view){
         this.model = model;
         this.view = view;
-    }
-
-//    Work method
-    public void processUser(){
         model.setMaxRange(MAX_RANGE);
         model.setMinRange(MIN_RANGE);
+    }
+
+    //    Work method
+    public void processUser(){
+//        model.setMaxRange(MAX_RANGE);
+//        model.setMinRange(MIN_RANGE);MIN_RANGE
 
         Random rand = new Random();
-        model.setValue(rand.nextInt((model.getMaxRange() - model.getMinRange()) + 1));
+        model.setValue(getRandValue(rand));
         Scanner sc = new Scanner(System.in);
 //        System.out.println(model.getValue());
         do {
@@ -41,6 +43,10 @@ public class Controller {
 
         view.printMessage(View.WIN + model.getValue());
         view.printMessage(View.YOUR_VALUE + model.getStat());
+    }
+
+    public int getRandValue(Random rand) {
+        return rand.nextInt((model.getMaxRange() - (model.getMinRange() + 1)));
     }
 
 
